@@ -1,11 +1,12 @@
 import React from 'react';
-import '../scss/App.scss';
+import './App.scss';
+import '../scss/main.scss';
 
 function App() {
   const x = 5;
   return (
     <div className="App">
-      <p>test</p>
+      <h1 className="test_head">T E S T</h1>
     </div>
   );
 }
