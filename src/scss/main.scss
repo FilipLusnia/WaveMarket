@@ -1,12 +1,15 @@
-@import "./reset";
-@import "./grid";
-@import "./fonts";
+@import "./settings/reset";
+@import "./settings/grid";
+@import "./settings/fonts";
+
+@import "./html_styles/header";
+@import "./html_styles/footer";
+
+@import "./react_styles/TrackSquare";
+@import "./react_styles/App";
+
 
 body{
     background-color: rgb(47, 48, 49);
     color: white;
-}
-
-.test_head {
-    color: rgb(65, 221, 76);
 }

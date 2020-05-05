@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import "../scss/App.scss";
 import "../scss/main.scss";
 import Searchbar from "./Searchbar";
 import TrackInfo from "./TrackInfo";
@@ -13,7 +12,6 @@ export default function App() {
 
   const getId = (id)=> {
     setCurrId(id);
-    console.log(id);
   }
 
   return(

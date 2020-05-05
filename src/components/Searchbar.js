@@ -21,8 +21,7 @@ export default function Searchbar({client_id, client_secret, getId}) {
               json: true
             };
         
-        
-        
+            
             request.post(authOptions, function(error, response, body) {
               
               if (!error && response.statusCode === 200) {
@@ -44,21 +43,22 @@ export default function Searchbar({client_id, client_secret, getId}) {
     
     const handleClick = (e)=> {
         e.preventDefault();
-        fetchData();   
+        setResAmount(10);
+        console.log(resAmount);
+        fetchData();  
     }
 
     const handleLoadButton = (e)=> {
       e.preventDefault();
+      setResAmount(resAmount+10);
       console.log(resAmount);
-      setResAmount(resAmount+10)
       fetchData(); 
     }
-    
-    
+
 
     return (<>
         <form>
-            <input type="text" onChange={e => setSongName(e.target.value)}></input>
+            <input type="text" onChange={e => setSongName(e.target.value)} placeholder="Wyszukaj cokolwiek..."></input>
             <input type="submit" value="Przeszukaj Spotify" onClick={handleClick}></input>
         </form>
 
@@ -82,7 +82,7 @@ export default function Searchbar({client_id, client_secret, getId}) {
             <h1>Niestety - Spotify nie posiada takiego utworu w swojej bibliotece.</h1>
           )    
         :
-        <h2>Aby zbadać dany utwór - wyszukaj go w oknie powyżej.</h2>
+        <h2>Wyszukaj utwór, który chcesz zbadać.</h2>
         }
     </>)
 }
