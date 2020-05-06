@@ -92,6 +92,8 @@
     color: rgb(163, 163, 163);
 }
 
+//--------------------
+
 .list_container{
     display: flex;
     justify-content: center;
@@ -122,6 +124,7 @@
         transition: 0.3s;
     }
 }
+
 .track_list-button:active{
     box-shadow: 0 0 8px rgb(64, 218, 74);
     background-color: rgb(240, 255, 243);

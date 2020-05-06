@@ -48,32 +48,38 @@ export default function Searchbar({getId, authToken}) {
       fetchData(); 
     }
 
-    return (<>
-        <form className="searchbar">
-            <input type="text" onChange={e => setSongName(e.target.value)} className="searchbar_input" placeholder="Wpisz nazwę utworu/artysty"></input>
-            <input type="submit" value="Przeszukaj Spotify" onClick={handleClick} className="searchbar_submit"></input>
-        </form>
+    return (
+    <>
+      <form className="searchbar">
+          <input type="text" onChange={e => setSongName(e.target.value)} className="searchbar_input" placeholder="Wpisz nazwę utworu/artysty"></input>
+          <input type="submit" value="Przeszukaj Spotify" onClick={handleClick} className="searchbar_submit"></input>
+      </form>
 
-        {results !== undefined ? 
+      {results !== undefined 
+        ? 
 
-          (results.tracks.items.length !== 0 ?
+          (results.tracks.items.length !== 0 
+            ?
             <>
-            <h2 className="searchbar_results">Oto wyniki wyszukiwania. Czas na wybór:</h2>
-            <div className="list_container">
-                <ul className="track_list">
-                  {results.tracks.items.map(item => (
-                    <TrackSquare title={item.name} 
-                          artist={item.artists[0].name} 
-                          cover={item.album.images[0].url}
-                          getId = {getId}
-                          id = {item.id}
-                          key={item.id}
-                          className="track_list-item" 
-                    />
-                  ))}    
-                </ul> 
+              <h2 className="searchbar_results">Oto wyniki wyszukiwania. Czas na wybór:</h2>
+              <div className="list_container">
+
+                  <ul className="track_list">
+                    {results.tracks.items.map(item => (
+                      <TrackSquare title={item.name} 
+                            artist={item.artists[0].name} 
+                            cover={item.album.images[0].url}
+                            getId = {getId}
+                            id = {item.id}
+                            key={item.id}
+                            className="track_list-item" 
+                      />
+                    ))}    
+                  </ul> 
+
               </div>
-              {moreResults !== "Pokaż więcej wyników..." ?
+              {moreResults !== "Pokaż więcej wyników..." 
+                ?
                 <button onClick={handleLoadButton} className="track_list-button end">{moreResults}</button>
                 :
                 <button onClick={handleLoadButton} className="track_list-button">{moreResults}</button>
@@ -92,6 +98,6 @@ export default function Searchbar({getId, authToken}) {
           <h2 className="searchbar_start">Poznaj ciekawe (i dziwne) informacje na temat swoich ulubionych utworów na Spotify.</h2>
           <h2 className="searchbar_start">Wyszukaj utwór do zbadania a potem kliknij w jeden z wyników.</h2>
         </>
-        }
+      }
     </>)
 }
