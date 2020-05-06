@@ -10,6 +10,9 @@
 @import "./react_styles/Searchbar";
 @import "./react_styles/App";
 
+html{
+    scroll-behavior: smooth;
+}
 
 body{
     background-color: rgb(38, 39, 39);

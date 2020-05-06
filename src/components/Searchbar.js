@@ -12,9 +12,9 @@ export default function Searchbar({getId, authToken}) {
     const fetchData = ()=> {
   
       fetch (`https://api.spotify.com/v1/search?q=${songName}%20&type=track&limit=${resAmount}`,{
-          headers: {
-            "Authorization": "Bearer " + authToken
-          }
+        headers: {
+          "Authorization": "Bearer " + authToken
+        }
       })
       .then(response => {
         if(response.status !== 400){
@@ -25,7 +25,7 @@ export default function Searchbar({getId, authToken}) {
         if(data !== undefined){
           setResults(data) 
         } else {
-          setMoreResults("Więcej wyników nie znaleziono.")
+          setMoreResults("To już wszystkie wyniki :(")
         }
       })
       .catch((err)=> {
@@ -34,10 +34,11 @@ export default function Searchbar({getId, authToken}) {
     }
     
     const handleClick = (e)=> {
-        e.preventDefault();
-        setResAmount(10);
-        console.log(resAmount);
-        fetchData();  
+      e.preventDefault();
+      setResAmount(10);
+      setMoreResults("Pokaż więcej wyników...");
+      console.log(resAmount);
+      fetchData();  
     }
 
     const handleLoadButton = (e)=> {
@@ -47,17 +48,18 @@ export default function Searchbar({getId, authToken}) {
       fetchData(); 
     }
 
-
     return (<>
         <form className="searchbar">
-            <input type="text" onChange={e => setSongName(e.target.value)} placeholder="Wyszukaj cokolwiek..."></input>
-            <input type="submit" value="Przeszukaj Spotify" onClick={handleClick}></input>
+            <input type="text" onChange={e => setSongName(e.target.value)} className="searchbar_input" placeholder="Wpisz nazwę utworu/artysty"></input>
+            <input type="submit" value="Przeszukaj Spotify" onClick={handleClick} className="searchbar_submit"></input>
         </form>
 
         {results !== undefined ? 
 
           (results.tracks.items.length !== 0 ?
-            <><div className="list_container">
+            <>
+            <h2 className="searchbar_results">Oto wyniki wyszukiwania. Czas na wybór:</h2>
+            <div className="list_container">
                 <ul className="track_list">
                   {results.tracks.items.map(item => (
                     <TrackSquare title={item.name} 
@@ -71,7 +73,11 @@ export default function Searchbar({getId, authToken}) {
                   ))}    
                 </ul> 
               </div>
-              <button onClick={handleLoadButton} className="track_list-button">{moreResults}</button>
+              {moreResults !== "Pokaż więcej wyników..." ?
+                <button onClick={handleLoadButton} className="track_list-button end">{moreResults}</button>
+                :
+                <button onClick={handleLoadButton} className="track_list-button">{moreResults}</button>
+              }
             </>
             :
             <>
@@ -81,8 +87,11 @@ export default function Searchbar({getId, authToken}) {
           ) 
 
         :
-        
-        <h2 className="searchbar_start">Wyszukaj utwór, który chcesz zbadać.</h2>
+        <>
+          <h2 className="searchbar_start">Witaj na&nbsp;<span className="searchbar_start-title">WaveMarket</span>!</h2>
+          <h2 className="searchbar_start">Poznaj ciekawe (i dziwne) informacje na temat swoich ulubionych utworów na Spotify.</h2>
+          <h2 className="searchbar_start">Wyszukaj utwór do zbadania a potem kliknij w jeden z wyników.</h2>
+        </>
         }
     </>)
 }

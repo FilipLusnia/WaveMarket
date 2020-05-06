@@ -1,6 +1,52 @@
 .searchbar{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchbar_input{
+    border: none;
+    width: 500px;
+    height: 50px;
+    border-radius: 20px;
+    text-align: center;
+    outline: none;
+    font-family: $Nunito;
+    font-size: 25px;
+    margin: 20px;
+    box-shadow: 0 10px 5px rgba(rgb(0, 0, 0), 0.3);
+
+    @media (max-width: 700px) {
+        width: 90%;
+        font-size: 20px;
+    }
+}
+
+.searchbar_submit{
+    height: 40px;
+    width: 250px;
+    border: none;
+    border-radius: 10px;
+    margin: 3px 20px 40px 20px;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(247, 247, 247);
+    font-family: $Nunito;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 5px 5px rgba(rgb(0, 0, 0), 0.3);
+    transition: 1s;
+}
+
+.searchbar_submit:hover{
+    box-shadow: 0 0 20px rgb(59, 139, 65);
+    transition: 1s;
+}
+
+.searchbar_submit:active{
+    background-color: rgb(70, 218, 80);
+    transition: 0.2s;
 }
 
 .searchbar_start{
@@ -8,6 +54,16 @@
     justify-content: center;
     text-transform: uppercase;
     margin: 10px;
+    font-family: $Abel;
+    font-size: 18px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgb(163, 163, 163);
+}
+
+.searchbar_start-title{
+    color: rgb(77, 177, 82);
 }
 
 .searchbar_error{
@@ -15,8 +71,26 @@
     justify-content: center;
     text-transform: uppercase;
     margin: 10px;
+    font-family: $Abel;
+    font-size: 16px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgb(209, 60, 60);
+    transition: 1s;
 }
 
+.searchbar_results{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    font-family: $Abel;
+    font-size: 15px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgb(163, 163, 163);
+}
 
 .list_container{
     display: flex;
@@ -34,6 +108,30 @@
     width: 250px;
     border: none;
     border-radius: 20px;
-    margin: 20px;
+    margin: 35px 20px 20px 20px;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(247, 247, 247);
+    font-family: $Nunito;
+    font-size: 17px;
+    font-weight: 600;
+
+    &.end{
+        background-color: rgb(223, 60, 60);
+        color: white;
+        transition: 0.3s;
+    }
 }
+.track_list-button:active{
+    box-shadow: 0 0 8px rgb(64, 218, 74);
+    background-color: rgb(240, 255, 243);
+
+    &.end{
+        background-color: rgb(255, 0, 0);
+        box-shadow: 0 0 15px rgb(216, 34, 34);  
+        transition: 0.2s; 
+    }
+}
+
+
  
