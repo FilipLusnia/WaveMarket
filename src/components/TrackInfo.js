@@ -4,7 +4,6 @@ import "../scss/main.scss";
 export default function TrackInfo({currId, authToken}){
 
     const [trackInfo, setTrackInfo] = useState(false);
-    
 
     useEffect(()=> {
         if(currId !== null){
@@ -21,7 +20,7 @@ export default function TrackInfo({currId, authToken}){
                 setTrackInfo(data);
             })  
         } 
-    }, [trackInfo])  
+    }, [currId])  
     
     return (
         <> 

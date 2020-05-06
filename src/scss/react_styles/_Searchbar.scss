@@ -159,8 +159,9 @@
 }
 
 .track_list-button:active{
-    box-shadow: 0 0 8px rgb(64, 218, 74);
+    box-shadow: 0 0 8px 1px rgba(54, 182, 62, 0.9);
     background-color: rgb(240, 255, 243);
+    transition: 0.1s;
 
     &.end{
         background-color: rgb(255, 0, 0);
