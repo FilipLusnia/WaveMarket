@@ -1,44 +1,36 @@
 import React, {useState, useEffect} from "react";
-import Track from "./TrackSquare";
+import TrackSquare from "./TrackSquare";
+import "../scss/main.scss";
 
-export default function Searchbar({client_id, client_secret, getId}) {
+export default function Searchbar({getId, authToken}) {
 
     const [songName, setSongName] = useState("");
     const [results, setResults] = useState();
     const [resAmount, setResAmount] = useState(10);
+    const [moreResults, setMoreResults] = useState("Pokaż więcej wyników...");
 
     const fetchData = ()=> {
-      const request = require("request");
   
-            const authOptions = {
-              url: "https://accounts.spotify.com/api/token",
-              headers: {
-                "Authorization": "Basic " + (new Buffer(client_id + ":" + client_secret).toString("base64"))
-              },
-              form: {
-                grant_type: "client_credentials"
-              },
-              json: true
-            };
-        
-            
-            request.post(authOptions, function(error, response, body) {
-              
-              if (!error && response.statusCode === 200) {
-                // use the access token to access the Spotify Web API
-                const token = body.access_token;
-        
-                fetch (`https://api.spotify.com/v1/search?q=${songName}%20&type=track&limit=${resAmount}`,{
-                  headers: {
-                    "Authorization": "Bearer " + token
-                  },
-                })
-                .then(response => response.json())
-                .then(data => {
-                    setResults(data) 
-                })
-              }
-            });
+      fetch (`https://api.spotify.com/v1/search?q=${songName}%20&type=track&limit=${resAmount}`,{
+          headers: {
+            "Authorization": "Bearer " + authToken
+          }
+      })
+      .then(response => {
+        if(response.status !== 400){
+          return response.json()
+        } 
+      })
+      .then(data => {
+        if(data !== undefined){
+          setResults(data) 
+        } else {
+          setMoreResults("Więcej wyników nie znaleziono.")
+        }
+      })
+      .catch((err)=> {
+        console.log("tutaj", err);
+      })
     }
     
     const handleClick = (e)=> {
@@ -57,32 +49,40 @@ export default function Searchbar({client_id, client_secret, getId}) {
 
 
     return (<>
-        <form>
+        <form className="searchbar">
             <input type="text" onChange={e => setSongName(e.target.value)} placeholder="Wyszukaj cokolwiek..."></input>
             <input type="submit" value="Przeszukaj Spotify" onClick={handleClick}></input>
         </form>
 
         {results !== undefined ? 
+
           (results.tracks.items.length !== 0 ?
-            <>
-              <ul>
+            <><div className="list_container">
+                <ul className="track_list">
                   {results.tracks.items.map(item => (
-                      <Track title={item.name} 
+                    <TrackSquare title={item.name} 
                           artist={item.artists[0].name} 
                           cover={item.album.images[0].url}
                           getId = {getId}
                           id = {item.id}
-                          key={item.id} 
-                      />
+                          key={item.id}
+                          className="track_list-item" 
+                    />
                   ))}    
-              </ul> 
-              <button onClick={handleLoadButton}>Pokaż więcej wyników...</button>
+                </ul> 
+              </div>
+              <button onClick={handleLoadButton} className="track_list-button">{moreResults}</button>
             </>
             :
-            <h1>Niestety - Spotify nie posiada takiego utworu w swojej bibliotece.</h1>
-          )    
+            <>
+              <h1 className="searchbar_error">Niestety - Spotify nie posiada takiego utworu w swojej bibliotece.</h1>
+              <h1 className="searchbar_error">Jeszcze.</h1>
+            </>
+          ) 
+
         :
-        <h2>Wyszukaj utwór, który chcesz zbadać.</h2>
+        
+        <h2 className="searchbar_start">Wyszukaj utwór, który chcesz zbadać.</h2>
         }
     </>)
 }

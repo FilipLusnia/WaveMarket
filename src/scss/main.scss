@@ -6,10 +6,17 @@
 @import "./html_styles/footer";
 
 @import "./react_styles/TrackSquare";
+@import "./react_styles/TrackInfo";
+@import "./react_styles/Searchbar";
 @import "./react_styles/App";
 
 
 body{
-    background-color: rgb(47, 48, 49);
+    background-color: rgb(38, 39, 39);
     color: white;
+    font-family: $Nunito;
+}
+
+#root {
+    display: block;
 }

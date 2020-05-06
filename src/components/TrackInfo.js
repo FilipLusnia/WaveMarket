@@ -1,42 +1,27 @@
 import React, {useState, useEffect} from "react";
+import "../scss/main.scss";
 
-export default function TrackInfo({client_id, client_secret, currId}){
-
-    const request = require("request");
+export default function TrackInfo({currId, authToken}){
 
     const [trackInfo, setTrackInfo] = useState(false);
     
 
     useEffect(()=> {
-    
-        const authOptions = {
-            url: "https://accounts.spotify.com/api/token",
-            headers: {
-                "Authorization": "Basic " + (new Buffer(client_id + ":" + client_secret).toString("base64"))
-            },
-            form: {
-                grant_type: "client_credentials"
-            },
-            json: true
-        };
-
-        request.post(authOptions, function(error, response, body) {
-            if (!error && response.statusCode === 200 && currId !== undefined) {
-                // use the access token to access the Spotify Web API
-                const token = body.access_token;
-
-                fetch (`https://api.spotify.com/v1/audio-features/${currId}`,{
+        if(currId !== null){
+            fetch (`https://api.spotify.com/v1/audio-features/${currId}`,{
                 headers: {
-                    "Authorization": "Bearer " + token
-                },
-                })
-                .then(response => response.json())
-                .then(data =>  {
-                setTrackInfo(data)
-                })
-            }
-        });
-    }, [currId])  
+                    "Authorization": "Bearer " + authToken
+                }
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then(data =>  {
+                console.log(data);
+                setTrackInfo(data);
+            })  
+        } 
+    }, [trackInfo])  
     
     return (
         <> 
@@ -70,5 +55,5 @@ export default function TrackInfo({client_id, client_secret, currId}){
                 null
             }
         </>
-    );
+    )
 }

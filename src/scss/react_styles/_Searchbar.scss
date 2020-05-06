@@ -1,0 +1,39 @@
+.searchbar{
+    display: flex;
+    justify-content: center;
+}
+
+.searchbar_start{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.searchbar_error{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+
+.list_container{
+    display: flex;
+    justify-content: center;
+}
+
+.track_list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.track_list-button{
+    height: 40px;
+    width: 250px;
+    border: none;
+    border-radius: 20px;
+    margin: 20px;
+}
+ 

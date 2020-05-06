@@ -5,10 +5,10 @@ export default function Track({title, artist, cover, getId, id}) {
 
     return (
         <div className="list_item" onClick={()=> getId(id)}>
-            <img src={cover} alt="cover" height="200" width="200"/>
-            <h1>{title}</h1>
+            <img src={cover} alt="cover" height="200" width="200" className="list_item-cover"/>
+            <h1 className="list_item-title">{title}</h1>
             &nbsp;
-            <h4>{artist}</h4>
+            <h4 className="list_item-artist">{artist}</h4>
         </div>
     );
 }
