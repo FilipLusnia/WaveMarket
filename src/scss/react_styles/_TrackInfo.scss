@@ -304,7 +304,7 @@
 .trackinfo_link{
     text-decoration: none;
     text-transform: uppercase;
-    color: rgb(82, 173, 82);
+    color: rgb(21, 231, 74);
     font-size: 19px;
     background-color: rgb(44, 44, 44);
     padding: 2px 10px;
@@ -316,15 +316,15 @@
 
 @keyframes neonLink {
 	0% {
-        color: rgba(rgb(58, 114, 76), 0.9);
-	}
-
-	50% {
         color: rgb(21, 231, 74);
 	}
 
-	100% {
+	50% {
         color: rgba(rgb(58, 114, 76), 0.9);
+	}
+
+	100% {
+        color: rgb(21, 231, 74);
 	}
 }
 
