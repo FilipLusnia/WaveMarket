@@ -25,6 +25,10 @@
         text-decoration: none;
         font-size: 13px;
         font-weight: 600;
+        box-shadow: 0 5px 5px rgba(black, 0.2);
+    }
+    .footer_button:active{
+        transform: translate(0, 2px);
     }
 
     .footer_logo-name{

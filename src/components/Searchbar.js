@@ -24,6 +24,7 @@ export default function Searchbar({getId, authToken}) {
       .then(data => {
         if(data !== undefined){
           setResults(data) 
+          setMoreResults("Pokaż więcej wyników...")
         } else {
           setMoreResults("To już wszystkie wyniki :(")
         }
@@ -41,6 +42,9 @@ export default function Searchbar({getId, authToken}) {
     }
 
     const handleLoadButton = (e)=> {
+      if(moreResults !== "To już wszystkie wyniki :("){
+        setMoreResults("Ładowanie...");
+      }
       e.preventDefault();
       setResAmount(resAmount+10);
       fetchData(); 
@@ -75,7 +79,7 @@ export default function Searchbar({getId, authToken}) {
                   </ul> 
 
               </div>
-              {moreResults !== "Pokaż więcej wyników..." 
+              {moreResults !== "Pokaż więcej wyników..." && moreResults !== "Ładuję..."
                 ?
                 <button onClick={handleLoadButton} className="track_list-button end">{moreResults}</button>
                 :
@@ -93,7 +97,7 @@ export default function Searchbar({getId, authToken}) {
         
         <>
           <h2 className="searchbar_start">Witaj na&nbsp;<span className="searchbar_start-title">WaveMarket</span>!</h2>
-          <h2 className="searchbar_start">Poznaj ciekawe (i dziwne) informacje na temat swoich ulubionych utworów na Spotify.</h2>
+          <h2 className="searchbar_start">Poznaj ciekawe informacje na temat swoich ulubionych utworów na Spotify.</h2>
           <h2 className="searchbar_start">Wyszukaj utwór do zbadania a potem kliknij w jeden z wyników (MAX. 50).</h2>
         </>
       }

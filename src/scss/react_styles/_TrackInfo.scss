@@ -55,11 +55,13 @@
     color: white;
     font-size: 20px;
     font-weight: 600;
-    box-shadow: 0 5px 5px rgba(rgb(0, 0, 0), 0.3);
+    box-shadow: 0 5px rgb(36, 73, 21);
 }
 
 .trackinfo_close-btn:active{
-    background-color: rgb(135, 235, 142);
+    box-shadow: none;
+    transform: translate(0, 5px);;
+    transition: 0.05s;
 }
 
 .trackinfo_data-container{
