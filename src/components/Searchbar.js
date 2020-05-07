@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import TrackSquare from "./TrackSquare";
 import "../scss/main.scss";
 
@@ -88,11 +88,12 @@ export default function Searchbar({getId, authToken}) {
             :
             <>
               <h1 className="searchbar_error">Niestety - Spotify nie posiada takiego utworu w swojej bibliotece.</h1>
-              <h1 className="searchbar_error">Jeszcze.</h1>
+              <h1 className="searchbar_error">Do czasu.</h1>
             </>
           ) 
 
         :
+        
         <>
           <h2 className="searchbar_start">Witaj na&nbsp;<span className="searchbar_start-title">WaveMarket</span>!</h2>
           <h2 className="searchbar_start">Poznaj ciekawe (i dziwne) informacje na temat swoich ulubionych utworów na Spotify.</h2>

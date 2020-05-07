@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import "../scss/main.scss";
 import Searchbar from "./Searchbar";
 import TrackInfo from "./TrackInfo";
@@ -48,15 +48,20 @@ export default class App extends React.Component {
     this.setState({currId: id});
   }
 
+  removeId = ()=> {
+    this.setState({currId: null});
+  }
+
   render() {
     return(
       <div className="App">
-        <div>
+        <div className="trackinfo">
           <TrackInfo
             client_id = {this.client_id}
             client_secret = {this.client_secret}
             currId = {this.state.currId}
             authToken = {this.state.authToken}
+            removeId = {this.removeId}
           />
         </div>
         <Searchbar className="e"

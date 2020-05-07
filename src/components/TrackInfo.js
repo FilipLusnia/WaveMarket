@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from "react";
 import "../scss/main.scss";
 
-export default function TrackInfo({currId, authToken}){
+export default function TrackInfo({currId, removeId, authToken}){
 
     const [trackInfo, setTrackInfo] = useState(false);
+    const [isClosed, setIsClosed] = useState(true);
 
     useEffect(()=> {
-        if(currId !== null){
+        if(currId !== null && currId){
             fetch (`https://api.spotify.com/v1/audio-features/${currId}`,{
                 headers: {
                     "Authorization": "Bearer " + authToken
@@ -19,13 +20,24 @@ export default function TrackInfo({currId, authToken}){
                 console.log(data);
                 setTrackInfo(data);
             })  
+            .then(setIsClosed(false))
         } 
     }, [currId])  
+
+    const handleClose = (e)=> {
+        e.preventDefault();
+        if (trackInfo){
+            setIsClosed(true)
+            setTrackInfo(false)
+            removeId();
+        }
+    }
     
     return (
         <> 
-            {trackInfo !== false ?
-                <div>
+            {trackInfo !== false && isClosed === false?
+                <div className="trackinfo_container">
+                    <button onClick={handleClose}>Z</button>
                     <div>Długość utworu: <>  
                         {((trackInfo.duration_ms/1000)/60).toFixed(0)}:
                         {(trackInfo.duration_ms/1000)%60 < 10 
@@ -46,7 +58,8 @@ export default function TrackInfo({currId, authToken}){
                     <div>Procent sekcji wyłącznie instrumentalnych: {`${(trackInfo.instrumentalness*100).toFixed(0)}%`}</div>
                     <div>Szansa, że to utwór akustyczny: {`${(trackInfo.acousticness*100).toFixed(0)}%`}</div>
                     <a href={`https://open.spotify.com/track/${trackInfo.id}`} 
-                       target="_blank">
+                       target="_blank"
+                       rel="noopener noreferrer">
                        Odtwórz utwór w Spotify
                     </a>
                 </div>
