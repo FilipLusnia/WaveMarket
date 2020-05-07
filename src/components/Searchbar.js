@@ -37,14 +37,12 @@ export default function Searchbar({getId, authToken}) {
       e.preventDefault();
       setResAmount(10);
       setMoreResults("Pokaż więcej wyników...");
-      console.log(resAmount);
       fetchData();  
     }
 
     const handleLoadButton = (e)=> {
       e.preventDefault();
       setResAmount(resAmount+10);
-      console.log(resAmount);
       fetchData(); 
     }
 
@@ -72,7 +70,6 @@ export default function Searchbar({getId, authToken}) {
                             getId = {getId}
                             id = {item.id}
                             key={item.id}
-                            className="track_list-item" 
                       />
                     ))}    
                   </ul> 

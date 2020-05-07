@@ -22,7 +22,7 @@
         background-color: rgba(black, 0.1);
         text-align: center;
         font-weight: 600;
-        font-size: 23px;
+        font-size: 22px;
         margin: 20px 15px 0px;
         width: 225px;
         padding: 15px;
@@ -44,4 +44,13 @@
     background-color: rgb(52, 160, 59);
     transform: translate(0, 5px) rotate(1.5deg);
     transition: 0.2s;
+}
+
+@keyframes appear {
+    from {opacity: 0}
+    to {opacity: 1}
+  }
+
+.list_item-animate{
+    animation: appear 1s;
 }

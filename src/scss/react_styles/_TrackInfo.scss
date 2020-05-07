@@ -1,7 +1,285 @@
 .trackinfo{
     z-index: 1;
     position: fixed;
-    background-color: rgb(31, 31, 31);
-    transform: translate(0, 100px);
+    top: 0;
+    display: flex;
+    justify-content: center;
 }
 
+.trackinfo_background{
+    background-color: rgba(0, 0, 1, 0.75);
+    width: 100vw;
+    height:120vh;
+    display: flex;
+    justify-content: center;
+    animation: backgroundAppear 0.9s;
+    position: absolute;
+}
+@keyframes backgroundAppear {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+.trackinfo_container{
+    width: 1383px;
+    min-height: 591px;
+    background-color: rgb(31, 31, 31);
+    border-radius: 20px;
+    box-shadow: 0 0 10px 4px rgba(rgb(0, 0, 0), 0.8);
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(0, 100px);
+    z-index: 1;
+    font-family: $Barlow;
+    animation: appear 0.2s;
+}
+@keyframes appear {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+.trackinfo_close-btn{
+    height: 30px;
+    width: 150px;
+    border: none;
+    border-radius: 30px;
+    margin: 5px 20px 5px 20px;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(64, 218, 74);
+    color: white;
+    font-family: $Nunito;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 5px 5px rgba(rgb(0, 0, 0), 0.3);
+}
+
+.trackinfo_close-btn:active{
+    background-color: rgb(135, 235, 142);
+}
+
+.trackinfo_data-container{
+    display: flex;
+    margin-top: 30px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.trackinfo_thumbnail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.trackinfo_data{
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-left: 300px;
+}
+
+.trackinfo_duration{
+    display: flex;
+    margin-bottom: 14px;
+}
+.trackinfo_tempo{
+    display: flex;
+    margin-bottom: 14px;
+}
+.trackinfo_key{
+    display: flex;
+    margin-bottom: 14px;
+}
+.trackinfo_scale{
+    display: flex;
+    margin-bottom: 14px;
+}
+.trackinfo_loudness{
+    display: flex;
+    margin-bottom: 30px;
+}
+.trackinfo_energy{
+    margin-bottom: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 400px;
+        height: 20px;
+        border: 1px solid white;
+        border-radius: 40px;
+        margin-top: 5px;
+        font-size: 13px;
+        overflow: hidden;
+
+        div {
+            margin: 0;
+            height: 20px;
+            background: linear-gradient(90deg, rgb(25, 107, 49) 0%, rgb(0, 255, 85) 100%);
+            border: none;
+            animation: bar 2s;
+        } 
+    }
+}
+.trackinfo_danceability{
+    margin-bottom: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 400px;
+        height: 20px;
+        border: 1px solid white;
+        border-radius: 40px;
+        margin-top: 5px;
+        font-size: 13px;
+        overflow: hidden;
+
+        div {
+            margin: 0;
+            height: 20px;
+            background: linear-gradient(90deg, rgb(25, 107, 49) 0%, rgb(0, 255, 85) 100%);
+            border: none;
+            animation: bar 2s;
+        }  
+    }
+}
+.trackinfo_valence{
+    margin-bottom: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 400px;
+        height: 20px;
+        border: 1px solid white;
+        border-radius: 40px;
+        margin-top: 5px;
+        font-size: 13px;
+        overflow: hidden;
+
+        div {
+            margin: 0;
+            height: 20px;
+            background: linear-gradient(90deg, rgb(25, 107, 49) 0%, rgb(0, 255, 85) 100%);
+            border: none;
+            animation: bar 2s;
+        }   
+    }
+}
+.trackinfo_instrumentalness{
+    margin-bottom: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 400px;
+        height: 20px;
+        border: 1px solid white;
+        border-radius: 40px;
+        margin-top: 5px;
+        font-size: 13px;
+        overflow: hidden;
+
+        div {
+            margin: 0;
+            height: 20px;
+            background: linear-gradient(90deg, rgb(25, 107, 49) 0%, rgb(0, 255, 85) 100%);
+            border: none;
+            animation: bar 2s;
+        } 
+    }
+}
+.trackinfo_acousticness{
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 400px;
+        height: 20px;
+        border: 1px solid white;
+        border-radius: 40px;
+        margin-top: 5px;
+        font-size: 13px;
+        overflow: hidden;
+
+        div {
+            margin: 0;
+            height: 20px;
+            background: linear-gradient(90deg, rgb(25, 107, 49) 0%, rgb(0, 255, 85) 100%);
+            border: none;
+            animation: bar 2s;
+        }  
+    }
+}
+@keyframes bar {
+    from {width: 0}
+} 
+
+.trackinfo_link{
+    text-decoration: none;
+    color: rgb(82, 173, 82);
+    font-size: 19px;
+    background-color: rgb(44, 44, 44);
+    padding: 2px 10px;
+    border-radius: 10px;
+    animation: neonLink 2s infinite;
+}
+
+
+@keyframes neonLink {
+	0% {
+        color: rgba(rgb(58, 114, 76), 0.9);
+	}
+
+	50% {
+        color: rgb(21, 231, 91);
+	}
+
+	100% {
+        color: rgba(rgb(58, 114, 76), 0.9);
+	}
+}
+
+.trackinfo_link:hover{
+    animation: pulseLink 1s infinite;
+}
+
+@keyframes pulseLink {
+	0% {
+		box-shadow: 0 0 0 0 rgb(46, 163, 54);
+	}
+
+	70% {
+		box-shadow: 0 0 15px 10px rgba(59, 139, 65, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 rgba(rgb(0, 0, 0), 0);
+	}
+}

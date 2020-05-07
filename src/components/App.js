@@ -64,7 +64,7 @@ export default class App extends React.Component {
             removeId = {this.removeId}
           />
         </div>
-        <Searchbar className="e"
+        <Searchbar
           client_id = {this.client_id}
           client_secret = {this.client_secret}
           getId = {this.getId}
