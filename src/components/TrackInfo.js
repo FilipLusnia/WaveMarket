@@ -55,7 +55,7 @@ export default function TrackInfo({currId, removeId, authToken}){
             {trackInfo !== false && isClosed === false && trackThumb !== false
             ?
                 <>
-                    <div className="trackinfo_background">
+                    <div className="trackinfo_background" onClick={handleClose}>
                     </div>
                     <div className="trackinfo_container">
                         <button className="trackinfo_close-btn" onClick={handleClose}>Zamknij</button>
@@ -93,15 +93,15 @@ export default function TrackInfo({currId, removeId, authToken}){
                                     <div className="trackinfo_loudness">Średnia wartość głośności wyrażona w LUFS(?):&nbsp;<div>{trackInfo.loudness.toFixed(1)}</div></div>    
                                 </div>
 
-                                <div className="trackinfo_energy">Szansa, że nie zaśniesz podczas słuchania:&nbsp;<div><div style={{width: `${(trackInfo.energy*100).toFixed(0)}%`}}></div><p>{`${(trackInfo.energy*100).toFixed(0)}%`}&nbsp;</p></div></div>
+                                <div className="trackinfo_energy">Szansa, że nie zaśniesz podczas słuchania:&nbsp;<div><div style={{width: `${(trackInfo.energy*100).toFixed(0)}%`}}></div><p>{`${(trackInfo.energy*100).toFixed(0)}%`}</p></div></div>
 
-                                <div className="trackinfo_danceability">Da się do tego tańczyć ?:&nbsp;<div><div style={{width: `${(trackInfo.danceability*100).toFixed(0)}%`}}></div><p>{`${(trackInfo.danceability*100).toFixed(0)}%`}&nbsp;</p></div></div>
+                                <div className="trackinfo_danceability">Da się do tego tańczyć ?:&nbsp;<div><div style={{width: `${(trackInfo.danceability*100).toFixed(0)}%`}}></div><p>{`${(trackInfo.danceability*100).toFixed(0)}%`}</p></div></div>
 
-                                <div className="trackinfo_valence">Ilość pozytywności/euforii:&nbsp;<div><div style={{width: `${(trackInfo.valence*100).toFixed(0)}%`}}></div><p>{`${(trackInfo.valence*100).toFixed(0)}%`}&nbsp;</p></div></div>
+                                <div className="trackinfo_valence">Ilość pozytywności/euforii:&nbsp;<div><div style={{width: `${(trackInfo.valence*100).toFixed(0)}%`}}></div><p>{`${(trackInfo.valence*100).toFixed(0)}%`}</p></div></div>
 
-                                <div className="trackinfo_instrumentalness">Procent sekcji wyłącznie instrumentalnych:&nbsp;<div><div style={{width: `${(trackInfo.instrumentalness*100).toFixed(0)}% `}}></div><p>{`${(trackInfo.instrumentalness*100).toFixed(0)}%`}&nbsp;</p></div></div>
+                                <div className="trackinfo_instrumentalness">Procent sekcji wyłącznie instrumentalnych:&nbsp;<div><div style={{width: `${(trackInfo.instrumentalness*100).toFixed(0)}% `}}></div><p>{`${(trackInfo.instrumentalness*100).toFixed(0)}%`}</p></div></div>
 
-                                <div className="trackinfo_acousticness">Szansa, że to utwór akustyczny:&nbsp;<div><div style={{width: `${(trackInfo.acousticness*100).toFixed(0)}%`}}></div><p>{`${(trackInfo.acousticness*100).toFixed(0)}%`}&nbsp;</p></div></div>
+                                <div className="trackinfo_acousticness">Szansa, że to utwór akustyczny:&nbsp;<div><div style={{width: `${(trackInfo.acousticness*100).toFixed(0)}%`}}></div><p>{`${(trackInfo.acousticness*100).toFixed(0)}%`}</p></div></div>
 
                             </div>
                         </div>

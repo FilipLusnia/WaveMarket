@@ -16,6 +16,7 @@
     font-size: 25px;
     margin: 20px;
     box-shadow: 0 10px 5px rgba(rgb(0, 0, 0), 0.3);
+    transition: 0.4s;
 
     @media (max-width: 700px) {
         width: 90%;
@@ -25,6 +26,8 @@
 
 .searchbar_input:focus{
     animation: pulseInput 2.5s infinite;
+    transform: scale(1.05);
+    transition: 0.4s;
 }
 
 @keyframes pulseInput {
