@@ -76,7 +76,8 @@
     flex-direction: column;
     align-items: center;
     margin-top: 3px;
-    padding-right: 75px;
+    max-width: 550px;
+    min-width: 510px;
 }
 .trackinfo_thumbnail-img{
     box-shadow: 0 5px 10px 2px rgba(rgb(0, 0, 0), 0.5);
@@ -85,9 +86,12 @@
     margin-top: 20px;
     font-size: 20px;
     font-weight: 600;
+    background-color: rgb(58, 58, 58);
+    padding: 5px 8px;
+    border-radius: 20px;
 }
 .trackinfo_thumbnail-artist{
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 
@@ -96,7 +100,7 @@
     letter-spacing: 1px;
     padding-left: 75px;
     color: rgb(36, 221, 98);
-    border-left: 1px solid rgba(0, 0, 0, 0.4);
+    border-left: 1px solid rgba(19, 19, 19, 0.589);
 }
 
 .trackinfo_specs-container{
