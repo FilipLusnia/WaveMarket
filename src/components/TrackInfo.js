@@ -10,14 +10,14 @@ export default function TrackInfo({currId, removeId, authToken}){
     useEffect(()=> {
         if(currId !== null){
             fetch (`https://api.spotify.com/v1/audio-features/${currId}`,{
-                headers: {
+                headers:{
                     "Authorization": "Bearer " + authToken
                 }
             })
             .then(response => {
                 return response.json()
             })
-            .then(data =>  {
+            .then(data => {
                 setTrackInfo(data);
             })  
             .then(setIsClosed(false))
@@ -60,6 +60,7 @@ export default function TrackInfo({currId, removeId, authToken}){
                     <div className="trackinfo_container">
                         <button className="trackinfo_close-btn" onClick={handleClose}>Zamknij</button>
                         <div className="trackinfo_data-container">
+
                             <div className="trackinfo_thumbnail">
                                 <img src={trackThumb.album.images[0].url} alt="cover" height="360" width="360" className="trackinfo_thumbnail-img"/>
                                 <div className="trackinfo_thumbnail-title">{trackThumb.name}</div>
@@ -71,6 +72,7 @@ export default function TrackInfo({currId, removeId, authToken}){
                                 Odtwórz utwór w Spotify
                                 </a>
                             </div>
+                            
                             <div className="trackinfo_specs">
 
                                 <div className="trackinfo_specs-container">
