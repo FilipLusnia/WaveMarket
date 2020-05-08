@@ -10,7 +10,7 @@ With this app you can figure out:
 * Will it make you sleep
 * How happy the song is
 * How much of a song is instrumental
-* If there is a chance it's acoustic
+* Is there a chance it's acoustic
 
 It's simple as that - click a song and see the info in a pop-up window.
 

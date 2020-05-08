@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import TrackSquare from "./TrackSquare";
 import "../scss/main.scss";
 
@@ -33,12 +33,19 @@ export default function Searchbar({getId, authToken}) {
         console.log("tutaj", err);
       })
     }
+
+    useEffect(()=> {  
+      if(results){
+        fetchData();  //fetch after pressing "more results"
+      }
+    }, [resAmount]) 
     
     const handleClick = (e)=> {
       e.preventDefault();
+      setResAmount(null);
       setResAmount(10);
       setMoreResults("Pokaż więcej wyników...");
-      fetchData(); 
+      fetchData();
     }
 
     const handleLoadButton = (e)=> {
@@ -47,7 +54,6 @@ export default function Searchbar({getId, authToken}) {
       }
       e.preventDefault();
       setResAmount(resAmount+10);
-      fetchData(); 
     }
 
     return (
