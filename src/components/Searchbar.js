@@ -30,7 +30,7 @@ export default function Searchbar({getId, authToken}) {
         }
       })
       .catch((err)=> {
-        console.log("tutaj", err);
+        console.log(err);
       })
     }
 
