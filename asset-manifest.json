@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/WaveMarket/static/css/main.dfe93bad.chunk.css",
-    "main.js": "/WaveMarket/static/js/main.ee596437.chunk.js",
-    "main.js.map": "/WaveMarket/static/js/main.ee596437.chunk.js.map",
+    "main.css": "/WaveMarket/static/css/main.372f655c.chunk.css",
+    "main.js": "/WaveMarket/static/js/main.c4ca58a1.chunk.js",
+    "main.js.map": "/WaveMarket/static/js/main.c4ca58a1.chunk.js.map",
     "runtime-main.js": "/WaveMarket/static/js/runtime-main.9ac37cdc.js",
     "runtime-main.js.map": "/WaveMarket/static/js/runtime-main.9ac37cdc.js.map",
     "static/js/2.52bd861b.chunk.js": "/WaveMarket/static/js/2.52bd861b.chunk.js",
     "static/js/2.52bd861b.chunk.js.map": "/WaveMarket/static/js/2.52bd861b.chunk.js.map",
     "index.html": "/WaveMarket/index.html",
-    "precache-manifest.b0f389571257cc7b7aef51757d81a74a.js": "/WaveMarket/precache-manifest.b0f389571257cc7b7aef51757d81a74a.js",
+    "precache-manifest.d15e54488373b030593efa5dbbcc98c8.js": "/WaveMarket/precache-manifest.d15e54488373b030593efa5dbbcc98c8.js",
     "service-worker.js": "/WaveMarket/service-worker.js",
-    "static/css/main.dfe93bad.chunk.css.map": "/WaveMarket/static/css/main.dfe93bad.chunk.css.map",
+    "static/css/main.372f655c.chunk.css.map": "/WaveMarket/static/css/main.372f655c.chunk.css.map",
     "static/js/2.52bd861b.chunk.js.LICENSE.txt": "/WaveMarket/static/js/2.52bd861b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9ac37cdc.js",
     "static/js/2.52bd861b.chunk.js",
-    "static/css/main.dfe93bad.chunk.css",
-    "static/js/main.ee596437.chunk.js"
+    "static/css/main.372f655c.chunk.css",
+    "static/js/main.c4ca58a1.chunk.js"
   ]
 }
