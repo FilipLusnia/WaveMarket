@@ -7,6 +7,12 @@ export default function TrackInfo({currId, removeId, authToken}){
     const [trackThumb, setTrackThumb] = useState(false);
     const [isClosed, setIsClosed] = useState(true);
 
+    // if(!isClosed){
+    //     document.body.style.overflow = "hidden";
+    // } else {
+    //     document.body.style.overflow = "auto"; 
+    // }
+
     useEffect(()=> {
         if(currId !== null){
             fetch (`https://api.spotify.com/v1/audio-features/${currId}`,{
@@ -62,15 +68,17 @@ export default function TrackInfo({currId, removeId, authToken}){
                         <div className="trackinfo_data-container">
 
                             <div className="trackinfo_thumbnail">
-                                <img src={trackThumb.album.images[0].url} alt="cover" height="360" width="360" className="trackinfo_thumbnail-img"/>
-                                <div className="trackinfo_thumbnail-title">{trackThumb.name}</div>
-                                <div className="trackinfo_thumbnail-artist">{trackThumb.artists[0].name}</div>
-                                <a className="trackinfo_link"
-                                href={`https://open.spotify.com/track/${trackInfo.id}`} 
-                                target="_blank"
-                                rel="noopener noreferrer">
-                                Odtwórz utwór w Spotify
-                                </a>
+                                <img src={trackThumb.album.images[0].url} alt="cover" className="trackinfo_thumbnail-img"/>
+                                <div className="trackinfo_thumbnail-text">
+                                    <div className="trackinfo_thumbnail-title">{trackThumb.name}</div>
+                                    <div className="trackinfo_thumbnail-artist">{trackThumb.artists[0].name}</div>
+                                    <a className="trackinfo_link"
+                                    href={`https://open.spotify.com/track/${trackInfo.id}`} 
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    Odtwórz utwór w Spotify
+                                    </a>
+                                </div>
                             </div>
                             
                             <div className="trackinfo_specs">
@@ -92,7 +100,7 @@ export default function TrackInfo({currId, removeId, authToken}){
 
                                     <div className="trackinfo_scale">Skala:&nbsp;<div>{trackInfo.mode === 0 ? "Minorowa" : "Majorowa"}</div></div>
 
-                                    <div className="trackinfo_loudness">Średnia wartość głośności wyrażona w LUFS(?):&nbsp;<div>{trackInfo.loudness.toFixed(1)}</div></div>    
+                                    <div className="trackinfo_loudness">Głośność:&nbsp;<div>{trackInfo.loudness.toFixed(1)}&nbsp;LUFS(?)</div></div>    
                                 </div>
 
                                 <div className="trackinfo_energy">Szansa, że nie zaśniesz podczas słuchania:&nbsp;<div><div style={{width: `${(trackInfo.energy*100).toFixed(0)}%`}}></div><p>{`${(trackInfo.energy*100).toFixed(0)}%`}</p></div></div>

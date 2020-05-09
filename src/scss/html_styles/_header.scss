@@ -9,6 +9,12 @@
     justify-content: center;
     align-items: center;
 
+    .logo_container{
+        display:flex;
+        justify-content: center;
+        align-items: center; 
+    }
+
     .header_logo-name{
         font-family: $Abel;
         font-size: 40px;

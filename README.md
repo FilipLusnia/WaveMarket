@@ -12,15 +12,21 @@ With this app you can figure out:
 * How much of a song is instrumental
 * Is there a chance it's acoustic
 
+![](WaveMarket_presentation.gif)
+
 It's simple as that - click a song and see the info in a pop-up window.
 
 Data comes straight from [Spotify's API].
 
 Project is built with [CRA]. 
-Demo link avilable soon.
 
+## Demo
+Demo is avilable [here].
+
+## Installation
 If you want to run it locally, `clone` this repo and type `npm start`.
 
 
 [Spotify's API]:https://developer.spotify.com/documentation/web-api/
 [CRA]:https://github.com/facebook/create-react-app/
+[here]:https://filiplusnia.github.io/WaveMarket/

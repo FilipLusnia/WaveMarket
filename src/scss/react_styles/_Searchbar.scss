@@ -3,6 +3,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding: 15px 0 10px;
 }
 
 .searchbar_input{
@@ -19,8 +20,8 @@
     transition: 0.4s;
 
     @media (max-width: 700px) {
-        width: 90%;
-        font-size: 20px;
+        width: 75vw;
+        font-size: 4.5vw;
     }
 }
 
@@ -58,6 +59,11 @@
     font-weight: 600;
     box-shadow: 0 5px 5px rgba(rgb(0, 0, 0), 0.3);
     transition: 1s;
+
+    @media (max-width: 600px) {
+        font-size: 4vw;
+        width: 50vw;
+    }
 }
 
 .searchbar_submit:hover{
@@ -90,13 +96,17 @@
     display: flex;
     justify-content: center;
     text-transform: uppercase;
-    margin: 10px;
+    margin: 10px 40px;
     font-family: $Abel;
     font-size: 18px;
     margin-top: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: rgb(163, 163, 163);
+    text-align: center;
+}
+.bottomline{
+    margin-bottom: 80px;
 }
 
 .searchbar_start-title{
@@ -107,26 +117,37 @@
     display: flex;
     justify-content: center;
     text-transform: uppercase;
-    margin: 10px;
+    margin: 10px 40px 30px;
     font-family: $Abel;
     font-size: 16px;
-    margin-top: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: rgb(209, 60, 60);
+    text-align: center;
     transition: 1s;
+    animation: animateError 0.5s;
+}
+@keyframes animateError {
+    from {opacity: 0}
+    to {opacity: 1}
 }
 
 .searchbar_results{
     display: flex;
     justify-content: center;
-    margin: 10px;
+    margin: 10px 0 40px;
     font-family: $Abel;
     font-size: 15px;
     margin-top: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: rgb(163, 163, 163);
+    text-align: center;
+
+    @media (max-width: 700px) {
+        width: 60vw;
+        margin: 10px;
+    }
 }
 
 //--------------------

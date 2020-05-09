@@ -36,8 +36,8 @@ export default function Searchbar({getId, authToken}) {
 
     useEffect(()=> {  
       if(results){
-        fetchData();  //fetch after pressing "more results"
-      }
+        fetchData();  
+      } // eslint-disable-next-line
     }, [resAmount]) 
     
     const handleClick = (e)=> {
@@ -45,7 +45,9 @@ export default function Searchbar({getId, authToken}) {
       setResAmount(null);
       setResAmount(10);
       setMoreResults("Pokaż więcej wyników...");
-      fetchData();
+      if(resAmount === 10){
+        fetchData(); 
+      }
     }
 
     const handleLoadButton = (e)=> {
@@ -103,8 +105,8 @@ export default function Searchbar({getId, authToken}) {
         
         <>
           <h2 className="searchbar_start">Witaj na&nbsp;<span className="searchbar_start-title">WaveMarket</span>!</h2>
-          <h2 className="searchbar_start">Poznaj ciekawe informacje na temat swoich ulubionych utworów na Spotify.</h2>
-          <h2 className="searchbar_start">Wyszukaj utwór do zbadania a potem kliknij w jeden z wyników (MAX. 50).</h2>
+          <h2 className="searchbar_start">Poznaj ciekawe informacje na temat swoich ulubionych utworów z Spotify.</h2>
+          <h2 className="searchbar_start bottomline">Wyszukaj utwór do zbadania a potem kliknij w jeden z wyników (MAX. 50).</h2>
         </>
       }
     </>)

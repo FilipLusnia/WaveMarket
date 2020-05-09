@@ -20,6 +20,10 @@ body{
     font-family: $Nunito;
 }
 
+::-webkit-scrollbar {
+        display: none;
+      }
+
 #root {
     display: block;
 }

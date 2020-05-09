@@ -1,20 +1,19 @@
 .trackinfo{
     z-index: 1;
-    position: fixed;
-    top: 0;
     display: flex;
     justify-content: center;
     font-family: $Nunito;
+    position: fixed;
 }
 
 .trackinfo_background{
     background-color: rgba(0, 0, 1, 0.75);
     width: 100vw;
-    height:120vh;
+    height: 100vh;
+    animation: backgroundAppear 0.9s;
     display: flex;
     justify-content: center;
-    animation: backgroundAppear 0.9s;
-    position: absolute;
+    position: fixed;
 }
 @keyframes backgroundAppear {
     from {opacity: 0}
@@ -22,7 +21,8 @@
 }
 
 .trackinfo_container{
-    width: 1183px;
+    width: 75vw;
+    height: 80vh;
     min-height: 591px;
     background-color: rgb(31, 31, 31);
     border-radius: 20px;
@@ -30,13 +30,28 @@
     box-sizing: border-box;
     padding: 10px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: translate(0, 100px);
+    transform: translate(0, 5%);
     z-index: 1;
     font-family: $Barlow;
     animation: appear 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media(max-width: 1300px){
+        width: 80vw;
+        height: 82vh;
+    }
+
+    @media(max-width: 1200px){
+        min-height: 0;
+        width: 50vw;
+        min-height: 515px;
+    }
+
+    @media(max-width: 800px){
+        width: 75vw;
+    }
 }
 @keyframes appear {
     from {opacity: 0}
@@ -60,27 +75,84 @@
 
 .trackinfo_close-btn:active{
     box-shadow: none;
-    transform: translate(0, 5px);;
+    transform: translate(0, 5px);
     transition: 0.05s;
 }
 
 .trackinfo_data-container{
-    display: flex;
     margin-top: 30px;
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    @media(max-width: 1200px){
+        flex-direction: column;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    @media(max-width: 1100px){
+        margin-top: 10px;
+    }
 }
 
 .trackinfo_thumbnail{
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     margin-top: 3px;
-    max-width: 550px;
-    min-width: 510px;
+    width: 45%;
+    margin-left: 45px;
+    margin-right: 10px;
+
+    @media(max-width: 1300px){
+        margin-left: 0;
+        margin-right: 0;
+        width: 60%;
+        margin: 20px 0;
+    }
+
+    @media(max-width: 1200px){
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    @media(max-width: 1100px){
+        width: 95%;
+        margin-left: 0;
+        margin-right: 0px;
+    }
 }
 .trackinfo_thumbnail-img{
     box-shadow: 0 5px 10px 2px rgba(rgb(0, 0, 0), 0.5);
+    height: 340px;
+    width: 340px;
+
+    @media(max-width: 1300px){
+        height: 260px;
+        width: 260px;
+        margin: 0 50px;
+    }
+
+    @media(max-width: 1200px){
+        height: 170px;
+        width: 170px;
+        margin: 0 20px 0 0px
+    }
+
+    @media(max-width: 1200px){
+        height: 120px;
+        width: 120px;
+    }
+}
+.trackinfo_thumbnail-text{
+    display: flex;
+    flex-direction: column;
+
+    @media(max-width: 1300px){
+        font-size: 100%;
+        margin: 10px 0;
+    }
 }
 .trackinfo_thumbnail-title{
     font-size: 20px;
@@ -89,18 +161,42 @@
     padding: 5px 8px;
     border-radius: 20px;
     margin: 20px 10px 0;
+
+    @media(max-width: 1300px){
+        font-size: 100%;
+        margin: 0;
+    }
 }
 .trackinfo_thumbnail-artist{
+    font-size: 15px;
     margin-top: 8px;
+
+    @media(max-width: 1300px){
+        font-size: 100%;
+    }
 }
 
 
 .trackinfo_specs{
-    text-align: center;
     letter-spacing: 1px;
-    padding-left: 75px;
+    width: 52%;
     color: rgb(36, 221, 98);
-    border-left: 1px solid rgba(19, 19, 19, 0.589);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media(min-width: 1100px){
+        width: 85%;
+    }
+
+    @media(max-width: 1200px){
+        justify-content: space-between;
+        height: 90%;
+    }
+
+    @media(max-width: 1300px){
+        width: 50vw
+    }
 }
 
 .trackinfo_specs-container{
@@ -109,12 +205,35 @@
     justify-content: center;
     background-color: rgb(35, 36, 35);
     border-radius: 30px;
-    font-size: 15px;
+    font-size: 95%;
     padding: 10px 30px 10px 20px;
     height: 140px;
+    width: 55%;
     margin-bottom: 30px;
     box-shadow: 0 5px 5px rgba(rgb(7, 7, 7), 0.2);
     letter-spacing: 2px;
+
+    @media(max-width: 1300px){
+        line-height: 80%;
+        height: 30%;
+        font-size: 100%;
+        width: 70%;
+    }
+
+    @media(max-width: 1200px){
+        font-size: 70%;
+        letter-spacing: 1px;
+        text-align: center;
+        width: 150%;
+        max-width: 300px;
+        margin-bottom: 20px;
+        line-height: 30%;
+        height: 25%;
+    }
+
+    @media(max-width: 500px){
+        width: 105%;
+    }
 }
 
 
@@ -165,26 +284,32 @@
     color: white;
 
     div{
-        width: 400px;
+        width: 26vw;
         height: 20px;
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 40px;
         margin-top: 5px;
-        font-size: 13px;
+        font-size: 80%;
         overflow: hidden;
 
         div {
             margin: 0;
-            height: 20px;
+            height: 100%;
             background: linear-gradient(90deg, rgb(97, 60, 60) 0%, rgb(255, 0, 0) 100%);
             border: none;
             animation: bar 2s;
         } 
 
         p {
-            transform: translate(0, -17px);
-        }
-           
+            transform: translate(0, -130%);
+        }  
+    }
+
+    @media(max-width: 1200px){
+        font-size: 60%;
+        height: 25px;
+        margin-bottom: 8px;
+        width: 60vw;
     }
 }
 .trackinfo_danceability{
@@ -195,25 +320,32 @@
     color: white;
 
     div{
-        width: 400px;
+        width: 26vw;
         height: 20px;
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 40px;
         margin-top: 5px;
-        font-size: 13px;
+        font-size: 80%;
         overflow: hidden;
 
         div {
             margin: 0;
-            height: 20px;
+            height: 100%;
             background: linear-gradient(90deg, rgb(43, 59, 83) 0%, rgb(0, 119, 255) 100%);
             border: none;
             animation: bar 2s;
         }  
 
         p {
-            transform: translate(0, -17px);
+            transform: translate(0, -130%);
         }
+    }
+
+    @media(max-width: 1200px){
+        font-size: 60%;
+        height: 25px;
+        margin-bottom: 8px;
+        width: 60vw;
     }
 }
 .trackinfo_valence{
@@ -224,26 +356,32 @@
     color: white;
 
     div{
-        width: 400px;
+        width: 26vw;
         height: 20px;
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 40px;
         margin-top: 5px;
-        font-size: 13px;
+        font-size: 80%;
         overflow: hidden;
-        
 
         div {
             margin: 0;
-            height: 20px;
+            height: 100%;
             background: linear-gradient(90deg, rgb(91, 95, 54) 0%, rgb(212, 209, 0) 100%);
             border: none;
             animation: bar 2s;
         }   
 
         p {
-            transform: translate(0, -17px);
-        }
+            transform: translate(0, -130%);
+        }   
+    }
+
+    @media(max-width: 1200px){
+        font-size: 60%;
+        height: 25px;
+        margin-bottom: 8px;
+        width: 60vw;
     }
 }
 .trackinfo_instrumentalness{
@@ -254,25 +392,32 @@
     color: white;
 
     div{
-        width: 400px;
+        width: 26vw;
         height: 20px;
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 40px;
         margin-top: 5px;
-        font-size: 13px;
+        font-size: 80%;
         overflow: hidden;
 
         div {
             margin: 0;
-            height: 20px;
+            height: 100%;
             background: linear-gradient(90deg, rgb(49, 83, 59) 0%, rgb(0, 255, 85) 100%);
             border: none;
             animation: bar 2s;
         } 
 
         p {
-            transform: translate(0, -17px);
-        }
+            transform: translate(0, -130%);
+        }  
+    }
+
+    @media(max-width: 1200px){
+        font-size: 60%;
+        height: 25px;
+        margin-bottom: 8px;
+        width: 60vw;
     }
 }
 .trackinfo_acousticness{
@@ -283,25 +428,32 @@
     color: white;
 
     div{
-        width: 400px;
+        width: 26vw;
         height: 20px;
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 40px;
         margin-top: 5px;
-        font-size: 13px;
+        font-size: 80%;
         overflow: hidden;
 
         div {
             margin: 0;
-            height: 20px;
+            height: 100%;
             background: linear-gradient(90deg, rgb(77, 68, 47) 0%, rgb(177, 108, 29) 100%);
             border: none;
             animation: bar 2s;
         }  
 
         p {
-            transform: translate(0, -17px);
-        }
+            transform: translate(0, -130%);
+        }     
+    }
+
+    @media(max-width: 1200px){
+        font-size: 60%;
+        height: 25px;
+        margin-bottom: 8px;
+        width: 60vw;
     }
 }
 @keyframes bar {
@@ -318,6 +470,15 @@
     border-radius: 10px;
     animation: neonLink 2s infinite;
     margin-top: 25px;
+
+    @media(max-width: 1300px){
+        font-size: 100%;
+    }
+
+    @media(max-width: 1100px){
+        font-size: 80%;
+        padding: 2px;
+    }
 }
 
 
