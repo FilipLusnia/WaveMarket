@@ -13,8 +13,8 @@ export default class App extends React.Component {
       currId: null
     }
 
-    this.client_id = "fb185e2943374c65b6cdc939c506b3c1"; 
-    this.client_secret = "7211f605e1274061ad0808b8f2da4fed";
+    this.client_id = process.env.REACT_APP_client_id; 
+    this.client_secret = process.env.REACT_APP_client_secret;
   }
 
   componentDidMount(){
