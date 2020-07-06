@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "37aff9aae0648e301cd5f315c989bf4d",
+    "revision": "cbb035799ddc50a0f26380a9ec724a06",
     "url": "/WaveMarket/index.html"
   },
   {
-    "revision": "7358159cc0d0629ef398",
-    "url": "/WaveMarket/static/css/main.7ade360a.chunk.css"
+    "revision": "ba34310a3036dc4e42fb",
+    "url": "/WaveMarket/static/css/main.728394fe.chunk.css"
   },
   {
     "revision": "ed114db03b2db9507c22",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/WaveMarket/static/js/2.a58d2084.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7358159cc0d0629ef398",
+    "revision": "ba34310a3036dc4e42fb",
     "url": "/WaveMarket/static/js/main.670cade2.chunk.js"
   },
   {
