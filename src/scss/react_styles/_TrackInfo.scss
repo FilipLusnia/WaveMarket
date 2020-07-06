@@ -22,7 +22,8 @@
 
 .trackinfo_container{
     width: 75vw;
-    height: 80vh;
+    height: 82vh;
+    max-height: 650px;
     background-color: rgb(31, 31, 31);
     border-radius: 20px;
     box-shadow: 0 0 10px 4px rgba(rgb(0, 0, 0), 0.8);
@@ -83,9 +84,42 @@
     height: 100%;
     display: flex;
     overflow-y: scroll;
-    box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+    box-shadow: inset 0 -5px 10px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 20px 0;
+
+    @media(max-height: 760px){
+        &:after{
+            content: '';
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            right: 20px;
+            bottom: 20px;
+            background-image: url(../icons8-expand-arrow-100.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.6;
+            animation: arrowMove 2s infinite;
+    
+            @keyframes arrowMove {
+                0% {
+                    transform: translate(0,0);
+                }
+            
+                50% {
+                    transform: translate(0,10px);
+                    opacity: 1;
+                }
+            
+                100% {
+                    transform: translate(0,0);
+                }
+            }
+        }
+    }
 
     @media(max-width: 1200px){
         flex-direction: column;
@@ -215,13 +249,9 @@
     box-shadow: 0 5px 5px rgba(rgb(7, 7, 7), 0.2);
     letter-spacing: 2px;
 
-    ::-webkit-scrollbar {
-        display: block;
-    }
-
     @media(max-width: 1300px){
         line-height: 80%;
-        height: 40%;
+        height: 55%;
         font-size: 100%;
         width: 70%;
     }
@@ -234,7 +264,6 @@
         max-width: 300px;
         margin-bottom: 20px;
         line-height: 30%;
-        height: 25%;
     }
 }
 
