@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/WaveMarket/static/css/main.ec005cfb.chunk.css",
+    "main.css": "/WaveMarket/static/css/main.c4b94a4d.chunk.css",
     "main.js": "/WaveMarket/static/js/main.670cade2.chunk.js",
     "main.js.map": "/WaveMarket/static/js/main.670cade2.chunk.js.map",
     "runtime-main.js": "/WaveMarket/static/js/runtime-main.9ac37cdc.js",
@@ -8,15 +8,15 @@
     "static/js/2.a58d2084.chunk.js": "/WaveMarket/static/js/2.a58d2084.chunk.js",
     "static/js/2.a58d2084.chunk.js.map": "/WaveMarket/static/js/2.a58d2084.chunk.js.map",
     "index.html": "/WaveMarket/index.html",
-    "precache-manifest.a506d57545e365a977da6de556464b1c.js": "/WaveMarket/precache-manifest.a506d57545e365a977da6de556464b1c.js",
+    "precache-manifest.ed9234384b070f443433056b8fb4988b.js": "/WaveMarket/precache-manifest.ed9234384b070f443433056b8fb4988b.js",
     "service-worker.js": "/WaveMarket/service-worker.js",
-    "static/css/main.ec005cfb.chunk.css.map": "/WaveMarket/static/css/main.ec005cfb.chunk.css.map",
+    "static/css/main.c4b94a4d.chunk.css.map": "/WaveMarket/static/css/main.c4b94a4d.chunk.css.map",
     "static/js/2.a58d2084.chunk.js.LICENSE.txt": "/WaveMarket/static/js/2.a58d2084.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9ac37cdc.js",
     "static/js/2.a58d2084.chunk.js",
-    "static/css/main.ec005cfb.chunk.css",
+    "static/css/main.c4b94a4d.chunk.css",
     "static/js/main.670cade2.chunk.js"
   ]
 }
