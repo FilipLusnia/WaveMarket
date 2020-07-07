@@ -1,6 +1,9 @@
+### Demo
+Demo page is avilable [here].
+
 # WaveMarket
 
-WaveMarket is an React app that visualises hidden Spotify song features.
+[WaveMarket] is an React app that visualises hidden Spotify song features.
 With this app you can figure out:
 * How long the song is
 * What's the pace of the song
@@ -18,10 +21,7 @@ It's simple as that - click a song and see the info in a pop-up window.
 
 Data comes straight from [Spotify's API].
 
-Project is built with [CRA]. 
-
-## Demo
-Demo is avilable [here].
+Project is built with [CRA].
 
 ## Installation
 If you want to run it locally, `clone` this repo and type `npm start`.
@@ -30,3 +30,4 @@ If you want to run it locally, `clone` this repo and type `npm start`.
 [Spotify's API]:https://developer.spotify.com/documentation/web-api/
 [CRA]:https://github.com/facebook/create-react-app/
 [here]:https://filiplusnia.github.io/WaveMarket/
+[WaveMarket]:https://filiplusnia.github.io/WaveMarket/
