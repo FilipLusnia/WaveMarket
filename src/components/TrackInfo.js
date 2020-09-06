@@ -1,17 +1,10 @@
 import React, {useState, useEffect} from "react";
-import "../scss/main.scss";
 
 export default function TrackInfo({currId, removeId, authToken}){
 
     const [trackInfo, setTrackInfo] = useState(false);
     const [trackThumb, setTrackThumb] = useState(false);
     const [isClosed, setIsClosed] = useState(true);
-
-    // if(!isClosed){
-    //     document.body.style.overflow = "hidden";
-    // } else {
-    //     document.body.style.overflow = "auto"; 
-    // }
 
     useEffect(()=> {
         if(currId !== null){
@@ -58,11 +51,10 @@ export default function TrackInfo({currId, removeId, authToken}){
     
     return (
         <> 
-            {trackInfo !== false && isClosed === false && trackThumb !== false
+            {trackInfo && isClosed === false && trackThumb
             ?
                 <>
-                    <div className="trackinfo_background" onClick={handleClose}>
-                    </div>
+                    <div className="trackinfo_background" onClick={handleClose}/>
                     <div className="trackinfo_container">
                         <button className="trackinfo_close-btn" onClick={handleClose}>Zamknij</button>
                         <div className="trackinfo_data-container">
@@ -72,11 +64,12 @@ export default function TrackInfo({currId, removeId, authToken}){
                                 <div className="trackinfo_thumbnail-text">
                                     <div className="trackinfo_thumbnail-title">{trackThumb.name}</div>
                                     <div className="trackinfo_thumbnail-artist">{trackThumb.artists[0].name}</div>
-                                    <a className="trackinfo_link"
-                                    href={`https://open.spotify.com/track/${trackInfo.id}`} 
-                                    target="_blank"
-                                    rel="noopener noreferrer">
-                                    Odtwórz utwór w Spotify
+                                    <a 
+                                        className="trackinfo_link"
+                                        href={`https://open.spotify.com/track/${trackInfo.id}`} 
+                                        target="_blank"
+                                        rel="noopener noreferrer">
+                                        Odtwórz utwór w Spotify
                                     </a>
                                 </div>
                             </div>

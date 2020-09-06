@@ -1,7 +1,9 @@
 import React from "react";
-import "../scss/main.scss";
+
 import Searchbar from "./Searchbar";
 import TrackInfo from "./TrackInfo";
+
+import "../scss/main.scss";
 
 export default class App extends React.Component {
 

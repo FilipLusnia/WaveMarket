@@ -1,5 +1,4 @@
 import React from "react";
-import "../scss/main.scss";
 
 export default function Track({title, artist, cover, getId, id}) {
 

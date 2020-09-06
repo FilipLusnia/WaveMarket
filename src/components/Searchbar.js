@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import TrackSquare from "./TrackSquare";
-import "../scss/main.scss";
 
 export default function Searchbar({getId, authToken}) {
 
@@ -76,7 +75,8 @@ export default function Searchbar({getId, authToken}) {
 
                   <ul className="track_list">
                     {results.tracks.items.map(item => (
-                      <TrackSquare title={item.name} 
+                      <TrackSquare 
+                            title={item.name} 
                             artist={item.artists[0].name} 
                             cover={item.album.images[0].url}
                             getId = {getId}
