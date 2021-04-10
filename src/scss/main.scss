@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,500,600|Abel:300,400,500,600|Barlow:300,400,500,600&display=swap&subset=latin-ext');
+
 @import "./settings/reset";
 @import "./settings/fonts";
 
@@ -20,7 +22,7 @@ body{
 }
 
 ::-webkit-scrollbar {
-        display: none;
+    display: none;
 }
 
 #root {

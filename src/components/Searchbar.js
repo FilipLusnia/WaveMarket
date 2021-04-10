@@ -3,74 +3,73 @@ import TrackSquare from "./TrackSquare";
 
 export default function Searchbar({getId, authToken}) {
 
-    const [songName, setSongName] = useState("");
-    const [results, setResults] = useState();
-    const [resAmount, setResAmount] = useState(10);
-    const [moreResults, setMoreResults] = useState("Pokaż więcej wyników...");
+  const [songName, setSongName] = useState("");
+  const [results, setResults] = useState();
+  const [resAmount, setResAmount] = useState(10);
+  const [moreResults, setMoreResults] = useState("Pokaż więcej wyników...");
 
-    const fetchData = ()=> {
+  const fetchData = ()=> {
+
+    fetch (`https://api.spotify.com/v1/search?q=${songName}%20&type=track&limit=${resAmount}`,{
+      headers: {
+        "Authorization": "Bearer " + authToken
+      }
+    })
+    .then(response => {
+      if(response.status !== 400){
+        return response.json()
+      } 
+    })
+    .then(data => {
+      if(data !== undefined){
+        setResults(data) 
+        setMoreResults("Pokaż więcej wyników...")
+      } else {
+        setMoreResults("To już wszystkie wyniki :(")
+      }
+    })
+    .catch((err)=> {
+      console.log(err);
+    })
+  }
+
+  useEffect(()=> {  
+    if(results){
+      fetchData();  
+    } // eslint-disable-next-line
+  }, [resAmount]) 
   
-      fetch (`https://api.spotify.com/v1/search?q=${songName}%20&type=track&limit=${resAmount}`,{
-        headers: {
-          "Authorization": "Bearer " + authToken
-        }
-      })
-      .then(response => {
-        if(response.status !== 400){
-          return response.json()
-        } 
-      })
-      .then(data => {
-        if(data !== undefined){
-          setResults(data) 
-          setMoreResults("Pokaż więcej wyników...")
-        } else {
-          setMoreResults("To już wszystkie wyniki :(")
-        }
-      })
-      .catch((err)=> {
-        console.log(err);
-      })
+  const handleClick = (e)=> {
+    e.preventDefault();
+    setResAmount(null);
+    setResAmount(10);
+    setMoreResults("Pokaż więcej wyników...");
+    if(resAmount === 10){
+      fetchData(); 
     }
+  }
 
-    useEffect(()=> {  
-      if(results){
-        fetchData();  
-      } // eslint-disable-next-line
-    }, [resAmount]) 
-    
-    const handleClick = (e)=> {
-      e.preventDefault();
-      setResAmount(null);
-      setResAmount(10);
-      setMoreResults("Pokaż więcej wyników...");
-      if(resAmount === 10){
-        fetchData(); 
-      }
+  const handleLoadButton = (e)=> {
+    if(moreResults !== "To już wszystkie wyniki :("){
+      setMoreResults("Ładowanie...");
     }
+    e.preventDefault();
+    setResAmount(resAmount+10);
+  }
 
-    const handleLoadButton = (e)=> {
-      if(moreResults !== "To już wszystkie wyniki :("){
-        setMoreResults("Ładowanie...");
-      }
-      e.preventDefault();
-      setResAmount(resAmount+10);
-    }
-
-    return (
+  return (
     <>
-      <form className="searchbar">
-          <input type="text" onChange={e => setSongName(e.target.value)} className="searchbar_input" placeholder="Wpisz nazwę utworu/artysty"></input>
-          <input type="submit" value="Przeszukaj Spotify" onClick={handleClick} className="searchbar_submit"></input>
-      </form>
+      <div className="searchbar">
+          <input type="text" onChange={e => setSongName(e.target.value)} className="searchbar_input" placeholder="Wpisz nazwę utworu/artysty"/>
+          <input type="submit" value="Przeszukaj Spotify" onClick={handleClick} className="searchbar_submit"/>
+      </div>
 
-      {results !== undefined 
-        ? 
+      {results !== undefined ? 
 
           (results.tracks.items.length !== 0 
             ?
             <>
-              <h2 className="searchbar_results">Oto wyniki wyszukiwania. Czas na wybór:</h2>
+              <h2 className="searchbar_results">Wybierz utwór:</h2>
               <div className="list_container">
 
                   <ul className="track_list">
@@ -109,5 +108,6 @@ export default function Searchbar({getId, authToken}) {
           <h2 className="searchbar_start bottomline">Wyszukaj utwór do zbadania a potem kliknij w jeden z wyników (MAX. 50).</h2>
         </>
       }
-    </>)
+    </>
+  )
 }
